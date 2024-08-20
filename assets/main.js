@@ -1,3 +1,23 @@
+const themeToggle = document.getElementById("theme-toggle");
+const body = document.body;
+
+themeToggle.addEventListener("click", () => {
+    body.classList.toggle("dark-theme");
+    
+    // Optionally, save the theme preference in local storage
+    if (body.classList.contains("dark-theme")) {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
+    }
+});
+
+// Apply the theme on page load based on preference
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme && savedTheme === "dark") {
+    body.classList.add("dark-theme");
+}
+
 /* ----- NAVIGATION BAR FUNCTION ----- */
 function myMenuFunction(){
     var menuBtn = document.getElementById("myNavMenu");
